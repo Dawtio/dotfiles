@@ -9,6 +9,6 @@
   ];
 
   # symlink Niri;
-  home.file.".config/niri/config.kdl".source = ../../niri/config.kdl;
+  home.file.".config/niri/config.kdl".source = ../../config/niri/config.kdl;
 
 }

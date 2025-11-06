@@ -4,6 +4,9 @@
 {
   # --- System-level defaults shared across hosts ---
 
+  # Allow unfree packages to be installed.
+  nixpkgs.config.allowUnfree = true;
+
   # Locales et timezone par défaut (tu peux les override dans hosts/* si besoin)
   time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "fr_FR.UTF-8";
@@ -57,6 +60,4 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
-  # Enable sound globally (PipeWire prendra le relais dans modules/wayland)
-  sound.enable = true;
 }

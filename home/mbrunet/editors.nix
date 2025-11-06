@@ -7,5 +7,5 @@
   };
 
   # symlink LazyVim;
-  home.file.".config/nvim".source = ../../nvim;
+  home.file.".config/nvim".source = ../../config/nvim;
 }
