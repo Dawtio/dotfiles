@@ -141,7 +141,7 @@ nixos-install --flake .#x1c13
 5. Reboot 🎉
 
 After reboot, greetd will log into your Wayland session (Niri)
-with your full user environment (zsh, wezterm, LazyVim, arc-browser, podman).
+with your full user environment (zsh, wezterm, LazyVim, podman).
 
 ---
 

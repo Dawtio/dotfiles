@@ -2,8 +2,7 @@
 
 {
   imports = [
-    # TODO: (mbrunet): Uncomment once file generated.
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
     ../../modules/common.nix
     ../../modules/wayland/niri.nix
     ../../modules/virtualization/podman.nix
@@ -21,6 +20,9 @@
   hardware.enableAllFirmware = true;
   services.fwupd.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;

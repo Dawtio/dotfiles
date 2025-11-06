@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  programs.zsh.enable = true;
 
   # symlink Zsh;
   home.file.".config/zsh/.p10k.zsh".source = ../../config/zsh/.p10k.zsh;

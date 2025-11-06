@@ -3,7 +3,6 @@
 
   # Install user packages.
   home.packages = with pkgs; [
-    arc-browser
     firefox
     wl-clipboard
   ];
