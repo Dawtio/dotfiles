@@ -1,0 +1,64 @@
+// ~/.config/niri/config.kdl
+// Niri configuration for ThinkPad X1 Carbon Gen 13 (OLED 2880x1800)
+
+output "eDP-1" {
+    mode "2880x1800@120Hz"
+    scale 1.5
+    adaptive-sync true
+    // Vous pouvez forcer la luminosité initiale :
+    // brightness 0.8
+}
+
+// Terminal par défaut (wezterm)
+default-shell "zsh"
+default-terminal "wezterm"
+
+// Barre de titre minimaliste
+decoration {
+    border-width 2
+    border-color "#89b4fa"  // Catppuccin-ish blue
+    border-radius 10
+}
+
+// Thème général
+theme {
+    background "#1e1e2e"
+    foreground "#cdd6f4"
+    accent "#89b4fa"
+    inactive "#585b70"
+}
+
+// Keybindings de base
+keybindings {
+    // Raccourcis essentiels
+    "Super+Return" spawn "wezterm"
+    "Super+Q" close-window
+    "Super+Shift+Q" quit
+
+    // Navigation
+    "Super+H" focus-left
+    "Super+L" focus-right
+    "Super+K" focus-up
+    "Super+J" focus-down
+
+    // Mouvements de fenêtre
+    "Super+Shift+H" move-left
+    "Super+Shift+L" move-right
+    "Super+Shift+K" move-up
+    "Super+Shift+J" move-down
+
+    // Capture d’écran (grim + slurp)
+    "Super+S" spawn "bash -c 'grim -g \"$(slurp)\" ~/screenshots/$(date +%s).png'"
+
+    // Menu d’applis (wofi)
+    "Super+D" spawn "wofi --show drun"
+}
+
+// Options système
+options {
+    focus-follows-mouse false
+    gaps 8
+    smart-gaps true
+    layout "tile"
+    borderless-fullscreen true
+}
