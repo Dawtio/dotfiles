@@ -3,14 +3,13 @@
 
 {
   # --- System-level defaults shared across hosts ---
+  system.stateVersion = "25.05";
 
   # Allow unfree packages to be installed.
   nixpkgs.config.allowUnfree = true;
 
   # Locales et timezone par défaut (tu peux les override dans hosts/* si besoin)
   time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "fr_FR.UTF-8";
-  i18n.supportedLocales = [ "fr_FR.UTF-8" "en_US.UTF-8" ];
 
   # Console (utile si tu es en TTY)
   console = {
