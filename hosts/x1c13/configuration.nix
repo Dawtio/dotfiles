@@ -10,8 +10,6 @@
   ];
 
   networking.hostName = "x1c13";
-  time.timeZone = "Europe/Paris";
-  i18n.defaultLocale = "fr_FR.UTF-8";
 
   users.users.mbrunet = {
     isNormalUser = true;
@@ -42,8 +40,4 @@
     extraSpecialArgs = { inherit inputs; };
   };
 
-  environment.systemPackages = with pkgs; [
-    git wget curl
-    pciutils usbutils
-  ];
 }

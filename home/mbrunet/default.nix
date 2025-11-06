@@ -3,6 +3,7 @@
 {
   home.username = "mbrunet";
   home.homeDirectory = "/home/mbrunet";
+  home.stateVersion = "25.05";
 
   imports = [
     ./terminal.nix
