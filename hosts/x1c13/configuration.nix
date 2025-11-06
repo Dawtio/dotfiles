@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    # TODO: (mbrunet): Uncomment once file generated.
+    #./hardware-configuration.nix
     ../../modules/common.nix
     ../../modules/wayland/niri.nix
     ../../modules/virtualization/podman.nix
