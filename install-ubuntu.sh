@@ -6,4 +6,4 @@ sudo apt update
 # Install package
 sudo apt install g++ -y # dependency for neovim plugins
 
-./core.sh
+./install-core.sh

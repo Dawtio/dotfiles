@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./core.sh
+./install-core.sh
 
 # Install GUI package
 ## Hobbies tool
@@ -23,4 +23,4 @@ brew install --cask spectacle
 brew install --cask raycast
 
 # Copy terminal emulator configuration
-cp .wezterm.lua ~/
+cp config/.wezterm.lua ~/
