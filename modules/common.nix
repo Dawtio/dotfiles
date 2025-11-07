@@ -11,12 +11,6 @@
   # Locales et timezone par défaut (tu peux les override dans hosts/* si besoin)
   time.timeZone = "Europe/Paris";
 
-  # Console (utile si tu es en TTY)
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "fr";
-  };
-
   # Paquets disponibles sur toutes les machines
   environment.systemPackages = with pkgs; [
     git

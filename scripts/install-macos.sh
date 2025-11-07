@@ -23,4 +23,4 @@ brew install --cask spectacle
 brew install --cask raycast
 
 # Copy terminal emulator configuration
-cp config/.wezterm.lua ~/
+cp config/wezterm/.wezterm.lua ~/
