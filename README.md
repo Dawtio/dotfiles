@@ -59,7 +59,7 @@ dotfile/
 │   ├── niri/config.kdl              # Wayland compositor config (Niri)
 │   ├── nvim/                        # Neovim config (LazyVim)
 │   ├── zsh/                         # ZSH configuration files
-│   └── .wezterm.lua                 # WezTerm terminal config
+│   └── wezterm/.wezterm.lua                 # WezTerm terminal config
 │
 ```
 
