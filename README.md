@@ -2,7 +2,7 @@
 
 [![NixOS](https://img.shields.io/badge/NixOS-Flake-5277C3?logo=nixos&logoColor=white)](https://nixos.org)
 [![Home Manager](https://img.shields.io/badge/Home_Manager-Declarative-blue?logo=nixos&logoColor=white)](https://nix-community.github.io/home-manager/)
-[![macOS](https://img.shields.io/badge/macOS-Compatible-black?logo=apple)]()
+[![MacOS](https://img.shields.io/badge/macOS-Compatible-black?logo=apple)]()
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-Compatible-E95420?logo=ubuntu&logoColor=white)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
@@ -17,7 +17,7 @@ This repository contains all my system and user configuration files — unified 
 
 The goal is to:
 
-- Keep **my entire environment reproducible** across machines (NixOS, macOS, Ubuntu)
+- Keep **my entire environment reproducible** across machines (NixOS, MacOS, Ubuntu)
 - Maintain a **clean and modular structure** for long-term maintainability
 - Use **symlinks** to keep editing workflows simple and direct
 - Support both **modern NixOS flakes** and **classic shell-based installs**
@@ -26,34 +26,34 @@ The goal is to:
 | -------------------- | --------- | ------------------------------------ |
 | 🐧 **NixOS**         | ✅        | Main environment (Arrow Lake / Niri) |
 | 🍎 **MacOS**         | ✅        | Homebrew + install script            |
-| 🐧 **Ubuntu/RedHat** | ✅        | apt/dnf + install script             |
+| 🐧 **Ubuntu/RedHat** | ✅        | apt/dnf + Homebrew + install script  |
 
 ---
 
 ## 🗂️ Structure Overview
 
 ```sh
-dotfile/
-├── flake.nix                    # Entry point for NixOS + Home Manager (flakes)
+dotfiles/
+├── flake.nix                        # Entry point for NixOS + Home Manager (flakes)
 │
 ├── hosts/                       # Machine-specific system configurations
 │   └── x1c13/
-│       ├── configuration.nix    # Main NixOS config for Lenovo X1 Carbon Gen 13
+│       ├── configuration.nix        # Main NixOS config for Lenovo X1 Carbon Gen 13
 │       └── hardware-configuration.nix
 │
 ├── home/                        # Home Manager user configurations
 │   └── mbrunet/
-│       ├── default.nix          # Home Manager entrypoint
-│       ├── terminal.nix         # wezterm + zsh setup
-│       ├── editors.nix          # Neovim (LazyVim) configuration
-│       └── desktop.nix          # Apps and desktop environment packages
+│       ├── default.nix              # Home Manager entrypoint
+│       ├── terminal.nix             # wezterm + zsh setup
+│       ├── editors.nix              # Neovim (LazyVim) configuration
+│       └── desktop.nix              # Apps and desktop environment packages
 │
 ├── modules/                     # Modular system-level NixOS configs
 │   ├── common.nix
 │   ├── wayland/
-│   │   └── niri.nix             # Niri compositor config
+│   │   └── niri.nix                 # Niri compositor config
 │   └── virtualization/
-│       └── podman.nix           # Container support
+│       └── podman.nix               # Container support
 │
 ├── config/
 │   ├── niri/config.kdl              # Wayland compositor config (Niri)
@@ -61,6 +61,12 @@ dotfile/
 │   ├── zsh/                         # ZSH configuration files
 │   └── .wezterm.lua                 # WezTerm terminal config
 │
+├── scripts/
+│   ├── install-core.sh              # Core package lists.
+│   ├── install-macos.sh             # Install core + cask brew
+│   ├── install-redhat.sh            # Install prerequisites + core
+│   └── install-ubuntu.sh            # Install prerequisites + core
+
 ```
 
 ---
@@ -74,11 +80,11 @@ They’re meant to replicate the environment on machines where Nix is not used.
 
 ```bash
 # Clone the repo
-git clone https://github.com/Dawtio/dotfile.git ~/.dotfiles
+git clone https://github.com/Dawtio/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Install packages and link configs
-./install-macos.sh
+./scripts/install-macos.sh
 ```
 
 That script:
@@ -91,11 +97,11 @@ That script:
 
 ```zsh
 # Clone the repo
-git clone https://github.com/Dawtio/dotfile.git ~/.dotfiles
+git clone https://github.com/Dawtio/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Install packages and link configs
-./install-(ubuntu|redhat).sh
+./scripts/install-(ubuntu|redhat).sh
 ```
 
 That script:
@@ -133,7 +139,7 @@ Move or copy it into your repo under: `hosts/x1c13/hardware-configuration.nix`
 4. Clone your dotfiles and install
 
 ```sh
-git clone https://github.com/Dawtio/dotfile.git /mnt/etc/nixos
+git clone https://github.com/Dawtio/dotfiles.git /mnt/etc/nixos
 cd /mnt/etc/nixos
 nixos-install --flake .#x1c13
 ```
