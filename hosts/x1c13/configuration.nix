@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
-    ../../modules/wayland/niri.nix
+    ../../modules/windowManager/niri.nix
     ../../modules/virtualization/podman.nix
   ];
 

@@ -25,7 +25,7 @@ The goal is to:
 | Platform             | Supported | Notes                                |
 | -------------------- | --------- | ------------------------------------ |
 | 🐧 **NixOS Main**    | ✅        | Main environment (Arrow Lake / Niri) |
-| 🐧 **NixOS AWS**     | ✅        | AWS environment (Arrow Lake / XFCE)  |
+| 🐧 **NixOS AWS**     | ✅        | AWS environment (XFCE)               |
 | 🍎 **MacOS**         | ✅        | Homebrew + install script            |
 | 🐧 **Ubuntu/RedHat** | ✅        | apt/dnf + Homebrew + install script  |
 
@@ -38,9 +38,9 @@ dotfiles/
 ├── flake.nix                        # Entry point for NixOS + Home Manager (flakes)
 │
 ├── hosts/                       # Machine-specific system configurations
-│   └── x1c13/
-│       ├── configuration.nix        # Main NixOS config for Lenovo X1 Carbon Gen 13
-│       └── hardware-configuration.nix
+│   ├── x1c13/
+│   │   ├── configuration.nix        # Main NixOS config for Lenovo X1 Carbon Gen 13
+│   │   └── hardware-configuration.nix
 │   └── aws/
 │       ├── configuration.nix        # NixOS config for AWS EC2 instance
 │       └── **.nix
@@ -54,16 +54,17 @@ dotfiles/
 │
 ├── modules/                     # Modular system-level NixOS configs
 │   ├── common.nix
-│   ├── wayland/
+│   ├── windowManager/
 │   │   └── niri.nix                 # Niri compositor config
+│   │   └── xfce.nix                 # XFCE compositor config
 │   └── virtualization/
 │       └── podman.nix               # Container support
 │
 ├── config/
-│   ├── niri/config.kdl              # Wayland compositor config (Niri)
+│   ├── niri/                        # Wayland compositor config (Niri)
 │   ├── nvim/                        # Neovim config (LazyVim)
 │   ├── zsh/                         # ZSH configuration files
-│   └── wezterm/.wezterm.lua                 # WezTerm terminal config
+│   └── wezterm/                     # WezTerm terminal config
 │
 ├── scripts/
 │   ├── install-core.sh              # Core package lists.

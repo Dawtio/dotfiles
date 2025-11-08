@@ -4,27 +4,16 @@
   imports = [
     ./amazon-image.nix
     ../../modules/common.nix
+    ../../modules/windowManager/xfce.nix
   ];
 
-  networking.hostName = "x1c13";
+  networking.hostName = "aws";
 
   users.users.mbrunet = {
     isNormalUser = true;
     description = "mbrunet";
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     shell = pkgs.zsh;
-  };
-
-  services.xrdp = {
-    enable = true;
-    openFirewall = true;
-    defaultWindowManager = "startxfce4";
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.xfce.enable = true;
   };
 
   home-manager = {
