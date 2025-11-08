@@ -31,6 +31,14 @@
         ];
         specialArgs = { inherit self nixpkgs home-manager niri; };
       };
+      aws = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/aws/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+        specialArgs = { inherit self nixpkgs home-manager; };
+      };
     };
   };
 }
