@@ -24,7 +24,8 @@ The goal is to:
 
 | Platform             | Supported | Notes                                |
 | -------------------- | --------- | ------------------------------------ |
-| 🐧 **NixOS**         | ✅        | Main environment (Arrow Lake / Niri) |
+| 🐧 **NixOS Main**    | ✅        | Main environment (Arrow Lake / Niri) |
+| 🐧 **NixOS AWS**     | ✅        | AWS environment (Arrow Lake / XFCE)  |
 | 🍎 **MacOS**         | ✅        | Homebrew + install script            |
 | 🐧 **Ubuntu/RedHat** | ✅        | apt/dnf + Homebrew + install script  |
 
@@ -40,6 +41,9 @@ dotfiles/
 │   └── x1c13/
 │       ├── configuration.nix        # Main NixOS config for Lenovo X1 Carbon Gen 13
 │       └── hardware-configuration.nix
+│   └── aws/
+│       ├── configuration.nix        # NixOS config for AWS EC2 instance
+│       └── **.nix
 │
 ├── home/                        # Home Manager user configurations
 │   └── mbrunet/
@@ -109,6 +113,37 @@ That script:
 - Installs packages with apt
 - Installs Homebrew (if not already installed)
 - Sets up your ZSH + Neovim environment
+
+---
+
+## 🐧 NixOS Installation (AWS)
+
+1. Create an EC2 instance using the following AMI:
+
+- AMI Id: `ami-021bd852c1da05fc3`
+- AMI Name: `nixos/25.05.810995.5da4a26309e7-x86_64-linux`
+
+2. Configure instance, network access and storage
+
+- Storage: 100GB (Recommended)
+- Network: Make sure a security group is attached with port 22 (SSH) and 3389 (RDP) accessible from your personal IP address.
+- Instance: `t2.xlarge` (4CPU/16GB Ram) (Recommended)
+
+3. Connect to the instance and install dotfiles.
+
+```sh
+chmod 400 key.pem
+ssh -i "key.pem" <user>@<public-hostname>
+
+# Inside EC2
+nix-shell -p git
+git clone https://github.com/Dawtio/dotfiles
+cd dotfiles/
+nixos-rebuild switch --flake .#aws
+reboot
+```
+
+After reboot, you can use RDP client to connect directly to the machine. (Don't forget to `passwd`).
 
 ---
 
