@@ -6,6 +6,10 @@
     # GUI
     firefox
     wl-clipboard
+    obsidian
+    discord
+    _1password-gui
+    thunderbird
     # Shell global
     gcc
     gnumake
@@ -33,7 +37,10 @@
     kubeconform
   ];
 
-  # symlink Niri;
-  home.file.".config/niri/config.kdl".source = ../../config/niri/config.kdl;
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
 }

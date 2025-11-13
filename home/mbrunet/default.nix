@@ -6,9 +6,8 @@
   home.stateVersion = "25.05";
 
   imports = [
-    ./terminal.nix
-    ./editors.nix
-    ./desktop.nix
+    ./packages.nix
+    ./config_mappers.nix
   ];
 
   programs.home-manager.enable = true;

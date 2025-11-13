@@ -20,10 +20,10 @@ tfswitch -u
 
 # Configure nvim
 mkdir -p ~/.config/
-cp -r config/nvim ~/.config/
+cp -r ../config/nvim ~/.config/
 
 # Configure zsh
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
-cp -v config/zsh/* ~/
-cp -v config/zsh/.* ~/
+cp -v ../config/zsh/* ~/
+cp -v ../config/zsh/.* ~/

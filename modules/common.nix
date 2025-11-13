@@ -22,10 +22,14 @@
     zip
     pciutils
     usbutils
+    brightnessctl
   ];
 
   # Activer zsh globalement (utile si plusieurs users)
   programs.zsh.enable = true;
+
+  # Allow Lazyvim to manage its own dependencies installation;
+  programs.nix-ld.enable = true;
 
   # Nix configuration globale
   nix.settings = {
