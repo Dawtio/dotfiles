@@ -18,10 +18,20 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    zen-browser = {
+      url = "path:./custom-flakes/zen-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, niri, hyprland, ... } @ inputs : {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, niri, hyprland, zen-browser, ... } @ inputs : {
       nixosConfigurations = {
         x1c13 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -30,7 +40,7 @@
             ./hosts/x1c13/configuration.nix
             home-manager.nixosModules.home-manager
           ];
-          specialArgs = { inherit inputs self nixpkgs home-manager hyprland; };
+          specialArgs = { inherit inputs self nixpkgs home-manager hyprland zen-browser; };
         };
         aws = nixpkgs.lib.nixosSystem {
           system = "x64_86-linux";

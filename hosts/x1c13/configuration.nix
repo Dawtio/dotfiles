@@ -29,8 +29,11 @@
   };
   networking.wireless.iwd.enable = true;
 
+  services.upower.enable = true;
+
   # Digital Footprint
   services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
 
   # Webcam
   hardware.ipu6 = {
@@ -38,11 +41,12 @@
     platform = "ipu6epmtl"; # pour ThinkPad X1 gen 13 (Intel BE)
   };
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   services.pipewire = {
     enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;

@@ -1,15 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
 
   # Install user packages.
   home.packages = with pkgs; [
     # GUI
     firefox
+    inputs.zen-browser.packages.${pkgs.system}.zen-browser
     wl-clipboard
     obsidian
     discord
     _1password-gui
     thunderbird
+    hyprpaper
     # Shell global
     gcc
     gnumake
@@ -23,6 +25,7 @@
     yq
     fzf
     fd
+    fastfetch
     # Development tools
     nodejs
     lazygit

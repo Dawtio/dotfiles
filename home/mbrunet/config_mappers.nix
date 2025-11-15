@@ -7,7 +7,7 @@ let
     # Standard .config/directory
     configs = {
       nvim = "nvim";
-      hypr = "hypr";
+      # hypr = "hypr";
       waybar = "waybar";
       zsh = "zsh";
     };
@@ -24,6 +24,11 @@ in
   # Using home.file for specific file.
   home.file.".zshrc" = {
     source = ../../config/zsh/.zshrc;
+    force = true;
+  };
+
+  home.file.".config/hypr/hyprpaper.conf" = {
+    source = ../../config/hypr/hyprpaper.conf;
     force = true;
   };
 

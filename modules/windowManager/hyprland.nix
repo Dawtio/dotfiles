@@ -15,13 +15,11 @@
     waybar
   ];
 
-  security.pam.services.login.fprintAuth = true;
-
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "mbrunet";
       };
     };
@@ -32,10 +30,4 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-  };
 }
