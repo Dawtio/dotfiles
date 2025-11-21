@@ -31,6 +31,11 @@ in
     recursive = true;
   }) configs;
 
+  home.file.".themes" = {
+    source = create_symlink "${dotfiles}/../themes";
+    recursive = true;
+  };
+
   # Using home.file for specific file.
   home.file.".zshrc" = {
     source = ../../config/zsh/.zshrc;
