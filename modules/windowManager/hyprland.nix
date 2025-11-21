@@ -11,7 +11,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     xfce.thunar
-    wofi
+    rofi
     waybar
   ];
 

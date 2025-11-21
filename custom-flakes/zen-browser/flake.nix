@@ -24,6 +24,12 @@
 
             extraPkgs = pkgs: [
               pkgs.fuse
+              pkgs.pipewire
+              pkgs.pulseaudio
+              pkgs.alsa-lib
+              pkgs.libvorbis
+              pkgs.libopus
+              pkgs.ffmpeg
             ];
 
             extraInstallCommands = ''

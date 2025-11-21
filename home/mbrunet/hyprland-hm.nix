@@ -15,7 +15,7 @@
     
     # You can split this configuration into multiple files
     # Create your files separately and then link them to this file like this:
-    # source = ~/.config/hypr/myColors.conf
+    "source" = "~/.config/hypr/colors/colors.conf";
     
     
     ################
@@ -35,7 +35,7 @@
     # Set programs that you use
     "$terminal" = "kitty";
     "$fileManager" = "thunar";
-    "$menu" = "wofi --show drun";
+    "$menu" = "~/.config/rofi/launchers/minimal/launcher.sh";
     
     
     #################
@@ -49,7 +49,9 @@
     # exec-once = nm-applet &
     # exec-once = waybar & hyprpaper & firefox
     "exec-once" = [
-      "waybar & hyprpaper"
+      "waybar &"
+      "awww-daemon"
+      "swaync &"
     ];
     
     #############################
@@ -75,11 +77,11 @@
     #   enforce_permissions = 1;
     # };
 
-    # permission = [
-    #   "/usr/(bin|local/bin)/grim, screencopy, allow"
+    permission = [
+      "/usr/(bin|local/bin)/grim, screencopy, allow"
     #   "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow"
     #   "/usr/(bin|local/bin)/hyprpm, plugin, allow"
-    # ];
+    ];
 
 
     #####################
@@ -91,15 +93,15 @@
     # https://wiki.hypr.land/Configuring/Variables/#general
     general = {
       gaps_in = 5;
-      gaps_out = 20;
+      gaps_out = 15;
 
       border_size = 2;
 
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
+      "col.active_border" = "$grey0";
+      "col.inactive_border" = "$bg1";
 
       # Set to true enable resizing windows by clicking and dragging on borders and gaps
-      resize_on_border = false;
+      resize_on_border = true;
 
       # Please see https://wiki.hypr.land/Configuring/Tearing/ before you turn this on
       allow_tearing = false;
@@ -109,27 +111,28 @@
 
     # https://wiki.hypr.land/Configuring/Variables/#decoration
     decoration = {
-      rounding = 10;
-      rounding_power = 2;
+      rounding = 15;
+      rounding_power = 6;
 
       # Change transparency of focused and unfocused windows
       active_opacity = 1.0;
-      inactive_opacity = 1.0;
+      inactive_opacity = 0.8;
 
       shadow = {
         enabled = true;
-        range = 4;
+        range = 13;
         render_power = 3;
-        color = "rgba(1a1a1aee)";
+        color = "$bg3";
       };
 
       # https://wiki.hypr.land/Configuring/Variables/#blur
       blur = {
         enabled = true;
-        size = 3;
-        passes = 1;
+        size = 15;
+        passes = 2;
 
-        vibrancy = 0.1696;
+        vibrancy = 0.5;
+        vibrancy_darkness = 0.5;
       };
     };
 
@@ -161,9 +164,9 @@
         "layersOut, 1, 1.5, linear, fade"
         "fadeLayersIn, 1, 1.79, almostLinear"
         "fadeLayersOut, 1, 1.39, almostLinear"
-        "workspaces, 1, 1.94, almostLinear, fade"
-        "workspacesIn, 1, 1.21, almostLinear, fade"
-        "workspacesOut, 1, 1.94, almostLinear, fade"
+        "workspaces, 1, 1.94, almostLinear, slidevert"
+        "workspacesIn, 1, 1.21, almostLinear, slidevert"
+        "workspacesOut, 1, 1.94, almostLinear, slidevert"
         "zoomFactor, 1, 7, quick"
       ];
     };
@@ -181,7 +184,7 @@
     #   "bordersize 0, floating:0, onworkspace:f[1]"
     #   "rounding 0, floating:0, onworkspace:f[1]"
     # ];
-
+    
     # See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
     dwindle = {
       pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
@@ -255,15 +258,13 @@
       "$mainMod, M, exit,"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, V, togglefloating,"
-      "$mainMod, R, exec, $menu"
-      "$mainMod, P, pseudo," # dwindle
-      "$mainMod, J, togglesplit," # dwindle
-
-      # Move focus with mainMod + arrow keys
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
+      "$mainMod, R, exec, pkill rofi || $menu"
+      "$mainMod, L, exec, hyprlock -c ~/.config/hypr/hyprlock/hyprlock.conf"
+      "CTRL ALT, DELETE, exec, ~/.config/wlogout/wlogout.sh"
+      "$mainMod, P, exec, grim -g \"$(slurp)\" ~/screenshots/$(date +%Y_%h_%d__%H_%M).png"
+      "$mainMod, A, exec, swaync-client -t"
+      "$mainMod, T, exec, ~/.config/colorschemes/rofi-launcher.sh"
+      "$mainMod, W, exec, ~/.config/colorschemes/wallpaper-selector.sh"
 
       # Switch workspaces with mainMod + [0-9]
       "$mainMod, 1, workspace, 1"
@@ -297,10 +298,10 @@
       "$mainMod, mouse_down, workspace, e+1"
       "$mainMod, mouse_up, workspace, e-1"
 
-      "$mainMod, period, layoutmsg, move +col"
-      "$mainMod, comma, layoutmsg, move -col"
-      "$mainMod SHIFT, period, layoutmsg, movewindowto r"
-      "$mainMod SHIFT, comma, layoutmsg, movewindowto l"
+      "$mainMod, right, layoutmsg, move +col"
+      "$mainMod, left, layoutmsg, move -col"
+      "$mainMod SHIFT, right, layoutmsg, movewindowto r"
+      "$mainMod SHIFT, left, layoutmsg, movewindowto l"
       "$mainMod SHIFT, up, layoutmsg, movewindowto u"
       "$mainMod SHIFT, down, layoutmsg, movewindowto d"
     ];
@@ -345,6 +346,12 @@
 
       # Fix some dragging issues with XWayland
       "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+    ];
+
+    layerrule = [
+      "blur, logout_dialog"
+      "blur, rofi"
+      "animation popin 95%, rofi"
     ];
   };
 }

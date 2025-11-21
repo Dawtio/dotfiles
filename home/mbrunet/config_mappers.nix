@@ -7,9 +7,19 @@ let
     # Standard .config/directory
     configs = {
       nvim = "nvim";
-      # hypr = "hypr";
       waybar = "waybar";
       zsh = "zsh";
+      kitty = "kitty";
+      matugen = "matugen";
+      "gtk-3.0" = "gtk-3.0";
+      "gtk-4.0" = "gtk-4.0";
+      rofi = "rofi";
+      wlogout = "wlogout";
+      swaync = "swaync";
+      vesktop = "vesktop";
+      colorschemes = "colorschemes";
+      "hypr/colors" = "hypr/colors";
+      "hypr/hyprlock" = "hypr/hyprlock";
     };
 in
 
@@ -24,11 +34,6 @@ in
   # Using home.file for specific file.
   home.file.".zshrc" = {
     source = ../../config/zsh/.zshrc;
-    force = true;
-  };
-
-  home.file.".config/hypr/hyprpaper.conf" = {
-    source = ../../config/hypr/hyprpaper.conf;
     force = true;
   };
 
