@@ -29,16 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    amsel-suite = {
-      url = "path:./custom-flakes/amsel-suite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     awww.url = "git+https://codeberg.org/LGFae/awww";
 
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, niri, hyprland, zen-browser, amsel-suite, ... } @ inputs : {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, niri, hyprland, zen-browser, ... } @ inputs : {
       nixosConfigurations = {
         x1c13 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -47,7 +42,7 @@
             ./hosts/x1c13/configuration.nix
             home-manager.nixosModules.home-manager
           ];
-          specialArgs = { inherit inputs self nixpkgs home-manager hyprland zen-browser amsel-suite; };
+          specialArgs = { inherit inputs self nixpkgs home-manager hyprland zen-browser; };
         };
         aws = nixpkgs.lib.nixosSystem {
           system = "x64_86-linux";

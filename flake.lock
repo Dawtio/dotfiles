@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "amsel-suite": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "path": "./custom-flakes/amsel-suite",
-        "type": "path"
-      },
-      "original": {
-        "path": "./custom-flakes/amsel-suite",
-        "type": "path"
-      },
-      "parent": []
-    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -625,7 +609,6 @@
     },
     "root": {
       "inputs": {
-        "amsel-suite": "amsel-suite",
         "awww": "awww",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

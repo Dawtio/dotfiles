@@ -21,7 +21,6 @@
     grim                                                   # Make a screenshot
     slurp                                                  # Get coordonates for screenshot
     swaynotificationcenter                                 # Notification center
-    inputs.amsel-suite.packages.${pkgs.system}.amsel-suite
     xournalpp                                              # Handle hand-writing and PDF signing.
     # Shell global
     gcc
