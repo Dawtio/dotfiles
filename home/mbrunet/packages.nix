@@ -22,6 +22,7 @@
     slurp                                                  # Get coordonates for screenshot
     swaynotificationcenter                                 # Notification center
     xournalpp                                              # Handle hand-writing and PDF signing.
+    spotify                                                # Things are always good with music.
     # Shell global
     gcc
     gnumake
@@ -38,6 +39,7 @@
     fastfetch
     matugen
     libnotify
+    distrobox
     # Development tools
     nodejs
     lazygit
@@ -58,4 +60,10 @@
     vimAlias = true;
   };
 
+  # programs.spicetify = let
+  #   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  # in {
+  #   enable = true;
+  #   theme = spicePkgs.themes.catppuccin;
+  # };
 }

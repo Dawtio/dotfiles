@@ -74,7 +74,7 @@
 
         {
           "label": "󰤨",
-          "command": "nm-connection-editor"
+          "command": "nmtui"
         },
 
         {

@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/common.nix
     ../../modules/windowManager/hyprland.nix
+    ../../modules/virtualization/podman.nix
   ];
 
   networking.hostName = "x1c13";

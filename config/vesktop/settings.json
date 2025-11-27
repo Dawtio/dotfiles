@@ -4,6 +4,6 @@
     "arRPC": false,
     "enableSplashScreen": false,
     "tray": false,
-    "splashColor": "rgb(144, 140, 170)",
-    "splashBackground": "rgb(25, 23, 36)"
+    "splashColor": "rgb(213, 196, 161)",
+    "splashBackground": "rgb(29, 32, 33)"
 }

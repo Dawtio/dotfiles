@@ -78,6 +78,13 @@ set_discord_theme() {
   echo ""
 }
 
+set_spicetify_theme() {
+  echo "Applying Spotify theme..."
+  spicetify config color_scheme $THEME
+  spicetify refresh
+  echo ""
+}
+
 set_gtk_theme() {
   if [ -f "$THEME_DIR/gtk-theme" ]; then
     GTK_THEME_NAME=$(cat "$THEME_DIR/gtk-theme")
@@ -166,6 +173,7 @@ main() {
   set_discord_theme
   set_rofi_theme
   set_swaync_theme
+  # set_spicetify_theme
 
   # Final success notification
   notify-send "Theme Applied" "Successfully switched to: $THEME" -t 5000

@@ -9,6 +9,7 @@
     ./packages.nix
     ./config_mappers.nix
     ./hyprland-hm.nix
+    # inputs.spicetify-nix.homeManagerModules.default
   ];
 
   programs.home-manager.enable = true;

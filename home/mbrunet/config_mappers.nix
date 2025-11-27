@@ -20,6 +20,7 @@ let
       colorschemes = "colorschemes";
       "hypr/colors" = "hypr/colors";
       "hypr/hyprlock" = "hypr/hyprlock";
+      spicetify = "spicetify";
     };
 in
 

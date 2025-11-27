@@ -5,5 +5,5 @@
     dockerCompat = true; # pour faire `podman` comme si c’était docker
   };
   # Eventuellement :
-  # virtualisation.containers.enable = true;
+  virtualisation.containers.enable = true;
 }
