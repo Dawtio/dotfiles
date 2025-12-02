@@ -36,19 +36,21 @@ main() {
   # Basic packages
   yay -S --needed brightnessctl hyprlock playerctl polkit-gnome wl-clipboard xdg-desktop-portal-hyprland xdg-desktop-portal-gtk usbutils fprintd openssh
   # Theming packages
-  yay -S --needed nwg-look awww ttf-jetbrains-mono-nerd papirus-icon-theme papirus-folder
+  yay -S --needed nwg-look awww papirus-icon-theme papirus-folder
   # Shell packages
   yay -S --needed zsh direnv zoxide eza bat fzf fd lazygit fastfetch unzip jq yq
   # Format packages
   yay -S --needed pre-commit stylua libxml2 yamlfmt commitizen
   # GUI packages
-  yay -S --needed 1password zen-browser meson cpio cmake obsidian thunderbird vesktop thunar spotify
+  yay -S --needed 1password zen-browser meson cpio cmake obsidian thunderbird vesktop thunar spotify nmgui-bin blueman ristretto
   # Webcam stuff
   yay -S --needed v4l-utils libcamera libcamera-tools libcamera-ipa pipewire-libcamera gst-plugin-libcamera
   # Custom install.
   curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
   sudo chmod a+wr /opt/spotify
   sudo chmod a+wr /opt/spotify/Apps -R
+  # Fonts
+  yay -S --needed ttf-jetbrains-mono-nerd ttf-space-mono-nerd ttf-fira-sans woff2-font-awesome ttf-roboto ttf-ms-fonts ttf-meslo-nerd
 }
 
 init_config() {
