@@ -1,213 +1,178 @@
-# 🧰 dotfiles
+<h1 align="center">💻 Dawtio Dotfiles</h1>
+<p align="center">
+  <i>Modern, modular, Wayland-native dotfiles for Arch Linux (Hyprland)</i>
+</p>
 
-[![NixOS](https://img.shields.io/badge/NixOS-Flake-5277C3?logo=nixos&logoColor=white)](https://nixos.org)
-[![Home Manager](https://img.shields.io/badge/Home_Manager-Declarative-blue?logo=nixos&logoColor=white)](https://nix-community.github.io/home-manager/)
-[![MacOS](https://img.shields.io/badge/macOS-Compatible-black?logo=apple)]()
-[![Ubuntu](https://img.shields.io/badge/Ubuntu-Compatible-E95420?logo=ubuntu&logoColor=white)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+<p align="center">
+  <!-- OS & Desktop -->
+  <img alt="arch" src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white"/>
+  <img alt="ubuntu" src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
+  <img alt="nixos" src="https://img.shields.io/badge/NixOS-5277C3?style=for-the-badge&logo=nixos&logoColor=white"/>
+  <img alt="macos" src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white"/>
+</p>
 
-> Personal, reproducible and cross-platform environment configuration  
-> ⚙️ Powered by **NixOS**, **Home Manager**, and traditional dotfiles (macOS / Linux)
+<p align="center">
+  <!-- Tools -->
+  <img alt="hyprland" src="https://img.shields.io/badge/Hyprland-00A1E0?style=for-the-badge&logo=hyprland&logoColor=white"/>
+  <img alt="wayland" src="https://img.shields.io/badge/Wayland-34BE5B?style=for-the-badge&logo=wayland&logoColor=white"/>
+  <img alt="nvim" src="https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white"/>
+  <img alt="kitty" src="https://img.shields.io/badge/Kitty-32C854?style=for-the-badge&logo=kitty&logoColor=white"/>
+  <img alt="zsh" src="https://img.shields.io/badge/Zsh-F15A24?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
+  <img alt="rofi" src="https://img.shields.io/badge/Rofi-1D1F21?style=for-the-badge"/>
+</p>
 
----
-
-## 🎯 Purpose
-
-This repository contains all my system and user configuration files — unified under a single, declarative setup.
-
-The goal is to:
-
-- Keep **my entire environment reproducible** across machines (NixOS, MacOS, Ubuntu)
-- Maintain a **clean and modular structure** for long-term maintainability
-- Use **symlinks** to keep editing workflows simple and direct
-- Support both **modern NixOS flakes** and **classic shell-based installs**
-
-| Platform             | Supported | Notes                                |
-| -------------------- | --------- | ------------------------------------ |
-| 🐧 **NixOS Main**    | ✅        | Main environment (Arrow Lake / Niri) |
-| 🐧 **NixOS AWS**     | ✅        | AWS environment (XFCE)               |
-| 🍎 **MacOS**         | ✅        | Homebrew + install script            |
-| 🐧 **Ubuntu/RedHat** | ✅        | apt/dnf + Homebrew + install script  |
-
----
-
-## 🗂️ Structure Overview
-
-```sh
-dotfiles/
-├── flake.nix                        # Entry point for NixOS + Home Manager (flakes)
-│
-├── hosts/                       # Machine-specific system configurations
-│   ├── x1c13/
-│   │   ├── configuration.nix        # Main NixOS config for Lenovo X1 Carbon Gen 13
-│   │   └── hardware-configuration.nix
-│   └── aws/
-│       ├── configuration.nix        # NixOS config for AWS EC2 instance
-│       └── **.nix
-│
-├── home/                        # Home Manager user configurations
-│   └── mbrunet/
-│       ├── default.nix              # Home Manager entrypoint
-│       ├── terminal.nix             # wezterm + zsh setup
-│       ├── editors.nix              # Neovim (LazyVim) configuration
-│       └── desktop.nix              # Apps and desktop environment packages
-│
-├── modules/                     # Modular system-level NixOS configs
-│   ├── common.nix
-│   ├── windowManager/
-│   │   └── niri.nix                 # Niri compositor config
-│   │   └── xfce.nix                 # XFCE compositor config
-│   └── virtualization/
-│       └── podman.nix               # Container support
-│
-├── config/
-│   ├── niri/                        # Wayland compositor config (Niri)
-│   ├── nvim/                        # Neovim config (LazyVim)
-│   ├── zsh/                         # ZSH configuration files
-│   └── wezterm/                     # WezTerm terminal config
-│
-├── scripts/
-│   ├── install-core.sh              # Core package lists.
-│   ├── install-macos.sh             # Install core + cask brew
-│   ├── install-redhat.sh            # Install prerequisites + core
-│   └── install-ubuntu.sh            # Install prerequisites + core
-
-```
+<p align="center">
+  <a href="LICENSE">
+    <img alt="license" src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge"/>
+  </a>
+  <img alt="last" src="https://img.shields.io/github/last-commit/Dawtio/dotfiles?style=for-the-badge"/>
+</p>
 
 ---
 
-## 💻 macOS / Ubuntu Setup
+## 🖼️ Desktop Preview
 
-This repo also includes **scripts for non-Nix systems**.
-They’re meant to replicate the environment on machines where Nix is not used.
+> _(Screenshot placeholder – replace with your own)_  
+> <img alt="" src="./screenshot.png" />
 
-### MacOS setup
+---
+
+## 🎞️ Quick Overview (GIF Placeholder)
+
+> _(Replace with your own GIF showing Hyprland_
+> _animations, themes, switching wallpapers, etc.)_
+> <img alt="" src="./preview.gif" />
+
+---
+
+## ✨ Features
+
+### 🪟 Wayland + Hyprland
+
+- Active tiling with animations
+- Smooth workspace navigation
+- Waybar with dynamic theming
+- Rofi launcher with automatic palette updates
+- Native Wayland apps everywhere
+
+### 🎨 Dynamic System-Wide Theming
+
+- Standard theme (Catppcuccin / Kanagawage / ... )
+- Auto-applies:
+  - Waybar CSS
+  - GTK3 + GTK4 theme
+  - Terminal colors
+  - Rofi theme
+  - Hyprland borders / accent color
+  - Lock screen
+  - Spotify
+  - Zen Browser
+
+### 🧑‍💻 Dev Environment Ready
+
+- LazyVim (Neovim distribution)
+- Treesitter
+- LSP preconfigured
+- Kitty terminal
+- Zsh with plugins & autosuggestions
+- Git config
+- Fast shortcuts + aliases
+
+### 🧃 Multi-OS Support
+
+This project aims to be OS agnostics as much as possible.
+
+---
+
+## 📜 Philosophy
+
+> **“A dotfiles repo should be declarative, modular and fun.”**
+
+- 🔹 No monolithic configs
+- 🔹 Keep things readable
+- 🔹 No weird hacks or magic files
+- 🔹 Anyone can clone & adapt
+- 🔹 Everything is DRY (Don’t Repeat Yourself)
+- 🔹 1-command setup possible
+
+This repo evolves as my workflow evolves.
+
+---
+
+## 📁 Project Structure (under construction)
 
 ```bash
-# Clone the repo
-git clone https://github.com/Dawtio/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-
-# Install packages and link configs
-./scripts/install-macos.sh
+dotfiles/
+├── arch/
+│ ├── install.sh # Bootstrap Arch setup
+│ ├── packages.txt # Pacman packages
+│ ├── aur-packages.txt # AUR packages
+│ ├── post-install.sh # Optional polish
+│ └── README.md
+│
+├── config/
+│ ├── hypr/ # Hyprland configs
+│ ├── waybar/ # Waybar
+│ ├── kitty/ # Terminal
+│ ├── nvim/ # LazyVim
+│ ├── rofi/ # Launcher
+│ └── ...
+│
+├── scripts/
+│ ├── theme/ # Auto-theming pipeline
+│ ├── system/ # Maintenance tools
+│ ├── mac/ # macOS helpers
+│ └── ...
+│
+├── zsh/
+│ ├── .zshrc
+│ ├── aliases.zsh
+│ ├── exports.zsh
+│ ├── plugins.zsh
+│ └── ...
+│
+├── bootstrap.sh # Full auto-installer
+└── LICENSE
 ```
-
-That script:
-
-- Installs Homebrew (if not already installed)
-- Installs packages defined in brewfile or inline in the script
-- Sets up your ZSH + Neovim environment
-
-## Ubuntu / RedHat setup
-
-```zsh
-# Clone the repo
-git clone https://github.com/Dawtio/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-
-# Install packages and link configs
-./scripts/install-(ubuntu|redhat).sh
-```
-
-That script:
-
-- Installs packages with apt
-- Installs Homebrew (if not already installed)
-- Sets up your ZSH + Neovim environment
 
 ---
 
-## 🐧 NixOS Installation (AWS)
+## 🔧 Requirements
 
-1. Create an EC2 instance using the following AMI:
+Before using these dotfiles:
 
-- AMI Id: `ami-021bd852c1da05fc3`
-- AMI Name: `nixos/25.05.810995.5da4a26309e7-x86_64-linux`
+### On any Linux distro
 
-2. Configure instance, network access and storage
+- Internet access
+- `git` installed
+- Wayland-compatible hardware drivers
 
-- Storage: 100GB (Recommended)
-- Network: Make sure a security group is attached with port 22 (SSH) and 3389 (RDP) accessible from your personal IP address.
-- Instance: `t2.xlarge` (4CPU/16GB Ram) (Recommended)
+### On MacOS
 
-3. Connect to the instance and install dotfiles.
-
-```sh
-chmod 400 key.pem
-ssh -i "key.pem" <user>@<public-hostname>
-
-# Inside EC2
-nix-shell -p git
-git clone https://github.com/Dawtio/dotfiles
-cd dotfiles/
-nixos-rebuild switch --flake .#aws
-reboot
-```
-
-After reboot, you can use RDP client to connect directly to the machine. (Don't forget to `passwd`).
+- Internet access
+- Developers tools installed
+- `git` installed
 
 ---
 
-## 🐧 NixOS Installation (Lenovo X1 Carbon Gen 13)
+# 🎨 Theming Commands
 
-Fully declarative install powered by flakes + Home Manager.
+| Command         | Description                         |
+| --------------- | ----------------------------------- |
+| SUPER+(SHIFT)+T | Change wallpaper + regenerate theme |
 
-1. Boot from a recent NixOS ISO (unstable channel recommended)
+# 🤝 Contributing
 
-This ensures support for your Arrow Lake CPU and Wi-Fi 7 chipset.
+You can propose:
 
-2. Partition & mount disks
+- New themes
+- Hyprland tweaks
+- Performance improvements
+- Better scripts
+- Cross-platform additions
 
-```sh
-sudo fdisk /dev/nvme0n1
-sudo mkfs.btrfs /dev/nvme0n1pX
-sudo mount /dev/nvme0n1pX /mnt
-```
+# 📜 License
 
-3. Generate hardware config
-
-```sh
-nixos-generate-config --root /mnt
-```
-
-Move or copy it into your repo under: `hosts/x1c13/hardware-configuration.nix`
-
-4. Clone your dotfiles and install
-
-```sh
-git clone https://github.com/Dawtio/dotfiles.git /mnt/etc/nixos
-cd /mnt/etc/nixos
-nixos-install --flake .#x1c13
-```
-
-5. Reboot 🎉
-
-After reboot, greetd will log into your Wayland session (Niri)
-with your full user environment (zsh, wezterm, LazyVim, podman).
-
----
-
-## 🔐 Secrets & Next Steps
-
-Future plans:
-
-- Integrate agenix or sops-nix for secret management
-- Add power management tweaks for ThinkPad (battery thresholds, sleep tuning)
-- Version wallpapers, GTK themes, and systemd user services
-
----
-
-## 🧾 License
-
-MIT — feel free to fork and adapt.
-
-Credits are appreciated ❤️
-
----
-
-<div align="center">
-
-💻 Made with ❤️ by **mbrunet ([@Dawtio](https://github.com/Dawtio))**  
-🧩 Built with [NixOS](https://nixos.org) · [Home Manager](https://nix-community.github.io/home-manager/) · [LazyVim](https://lazyvim.github.io)
-
-</div>
+This project is under the MIT License.
+See the LICENSE
+file for more details.
