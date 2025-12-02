@@ -11,7 +11,7 @@ if [ ! -f "$CURRENT_THEME_FILE" ]; then
 fi
 
 CURRENT_THEME=$(cat "$CURRENT_THEME_FILE")
-WALLPAPER_DIR="$HOME/dotfiles/wallpapers/$CURRENT_THEME"
+WALLPAPER_DIR="$HOME/projects/dotfiles/wallpapers/$CURRENT_THEME"
 
 if [ ! -d "$WALLPAPER_DIR" ]; then
   notify-send "Error" "No wallpapers directory found for theme: $CURRENT_THEME"

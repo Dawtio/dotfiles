@@ -50,7 +50,7 @@
 
     "label": {
       "max-lines": 1,
-      "text": "NixOS by Eviato"
+      "text": "ArchLinux by Eviato"
     },
 
     "volume": {
@@ -74,17 +74,12 @@
 
         {
           "label": "󰤨",
-          "command": "nmtui"
+          "command": "nmgui"
         },
 
         {
           "label": "󰂯",
           "command": "blueman-manager"
-        },
-
-        {
-          "label": "",
-          "command": "obs"
         },
 
         {

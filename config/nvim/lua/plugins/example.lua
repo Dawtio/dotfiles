@@ -11,6 +11,7 @@ if true then return {} end
 return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
+  { "folke/tokyonight.nvim" },
 
   -- Configure LazyVim to load gruvbox
   {
@@ -184,7 +185,7 @@ return {
 
   -- add any tools you want to have installed below
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",

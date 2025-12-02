@@ -11,9 +11,9 @@
   "modules-right": [
     "pulseaudio",
     "network",
-    "cpu",
-    "memory",
-    "temperature",
+    // "cpu",
+    // "memory",
+    // "temperature",
     "battery",
     "clock",
     "custom/notification",

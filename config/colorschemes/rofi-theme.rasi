@@ -1,4 +1,4 @@
-@import "~/.local/share/rofi/themes/minimal.rasi"
+@import "~/.config/rofi/launchers/minimal/default.rasi"
 
 entry {
   placeholder: "Search themes...";

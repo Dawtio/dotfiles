@@ -1,6 +1,6 @@
 #!/bin/sh
 
-THEME_DIR="$HOME/dotfiles/config/colorschemes"
+THEME_DIR="$HOME/.config/colorschemes"
 APPLY_SCRIPT="$THEME_DIR/apply-theme.sh"
 
 # List only non-hidden directories

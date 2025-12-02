@@ -4,7 +4,7 @@
 THEME="$1"
 # Global Configuration
 COLORSCHEMES_DIR="$HOME/.config/colorschemes"
-WALLPAPER_DIR="$HOME/dotfiles/wallpapers/$THEME"
+WALLPAPER_DIR="$HOME/projects/dotfiles/wallpapers/$THEME"
 # Computed variable.
 THEME_DIR="$COLORSCHEMES_DIR/$THEME"
 CURRENT_THEME_FILE="$COLORSCHEMES_DIR/.current-theme"
@@ -60,6 +60,14 @@ set_swaync_theme() {
   echo ""
 }
 
+set_zen_browser_theme() {
+  echo "Applying Zen browser theme..."
+  cp "$THEME_DIR/zen/colors.css" "$HOME/.zen/nqz98swq.Default\ \(release\)/chrome/colors/colors.css" >/dev/null 2>&1
+  killall zen-bin >/dev/null 2>&1 && zen-browser >/dev/null 2>&1 &
+  disown
+  echo ""
+}
+
 set_wlogout_theme() {
   echo "Applying wlogout theme..."
   cp "$THEME_DIR/wlogout/colors.css" "$HOME/.config/wlogout/colors/colors.css" >/dev/null 2>&1
@@ -81,7 +89,7 @@ set_discord_theme() {
 set_spicetify_theme() {
   echo "Applying Spotify theme..."
   spicetify config color_scheme $THEME
-  spicetify refresh
+  spicetify apply
   echo ""
 }
 
@@ -173,7 +181,8 @@ main() {
   set_discord_theme
   set_rofi_theme
   set_swaync_theme
-  # set_spicetify_theme
+  set_spicetify_theme
+  set_zen_browser_theme
 
   # Final success notification
   notify-send "Theme Applied" "Successfully switched to: $THEME" -t 5000
