@@ -140,6 +140,11 @@ map("n", "<leader>uc", function() Snacks.picker.colorschemes() end,             
 -- -- Terminal
 map("n", "<c-/>", function() Snacks.terminal.focus("zsh", { cwd = vim.fn.getcwd() }) end, { desc = "Toogle Terminal" })
 
+-- OpenCode server
+map("n", "<leader>ac", function()
+  Snacks.terminal.open("opencode --port", { win = { position = "right" }, cwd = vim.fn.getcwd() })
+end, { desc = "Open OpenCode server" })
+
 -- LSP (only active when a language server attaches to the buffer
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
@@ -160,10 +165,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- CodeCompanion
-map({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>",   { desc = "Toggle chat" })
-map({ "n", "v" }, "<leader>an", "<cmd>CodeCompanionChat<cr>",          { desc = "New chat" })
-map("v",          "<leader>aa", "<cmd>CodeCompanionChat Add<cr>",      { desc = "Add selection to chat" })
-map({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<cr>",              { desc = "Inline assistant" })
-map({ "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>",       { desc = "Action palette" })
+-- OpenCode
+map({ "n", "x" }, "<C-a>",   function() require("opencode").ask("@this: ") end,                    { desc = "Ask OpenCode…" })
+map({ "n", "x" }, "<C-x>",   function() require("opencode").select() end,                          { desc = "Select OpenCode…" })
+map({ "n", "x" }, "go",      function() return require("opencode").operator("@this ") end,         { desc = "Append range to OpenCode", expr = true })
+map({ "n" },      "goo",     function() return require("opencode").operator("@this ") .. "_" end,  { desc = "Append line to OpenCode", expr = true })
+map({ "n" },      "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "Scroll OpenCode up" })
+map({ "n" },      "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll OpenCode down" })
 

@@ -9,7 +9,7 @@ return {
     spec = {
       {
 	      mode = { "n", "x" },
-	      { "<leader>a", group = "AI (CodeCompanion)" },
+	      { "<leader>a", group = "AI" },
 	      { "<leader>f", group = "Find/File" },
 	      { "<leader>g", group = "Git/Github" },
 	      { "<leader>go", group = "Octohub" },
