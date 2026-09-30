@@ -1,5 +1,0 @@
-@import "~/.local/share/rofi/themes/minimal.rasi"
-
-entry {
-  placeholder: "Search themes...";
-}

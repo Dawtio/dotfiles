@@ -6,6 +6,7 @@ return {
       xml = { "xmllint" },
       tf = { "terraform_fmt" },
       yaml = { "yamlfmt" },
+      markdown = { "prettier" },
     },
     formatters = {
       xmllint = {
