@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Copy the generated Vesktop theme into Vesktop's themes folder.
+# Vencord watches that folder and reloads the theme live.
+
+SOURCE="$HOME/.local/state/omarchy/current/theme/vesktop.css"
+THEMES_DIR="$HOME/.config/vesktop/themes"
+
+[[ -f $SOURCE && -d $THEMES_DIR ]] || exit 0
+
+cp "$SOURCE" "$THEMES_DIR/omarchy.theme.css"

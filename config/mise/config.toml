@@ -1,0 +1,7 @@
+[tools]
+codex = "latest"
+node = "26.8.2"
+opencode = "latest"
+
+[settings.upgrade]
+auto_prune = false
