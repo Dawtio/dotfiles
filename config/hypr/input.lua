@@ -11,14 +11,19 @@ hl.config({
 })
 
 -- Clavier Bluetooth Epomaker Tide Alice
-hl.device({
-    name       = "tide-alice-3-keyboard",
+-- The keyboard exposes two input devices; the rule must cover both.
+-- kb_options on a device replaces the global ones, so keep Omarchy's defaults
+-- (compose:caps, shift:both_capslock_cancel) and add the remap.
+for _, name in ipairs({ "hs-tide-alice", "hs-tide-alice-keyboard" }) do
+  hl.device({
+    name       = name,
     kb_layout  = "us",
     kb_variant = "altgr-intl",
 
-    -- Remap : Left Alt -> Super
-    kb_options = "altwin:swap_lalt_lwin",
-})
+    -- Remap : Left Alt <-> Left Super
+    kb_options = "compose:caps,shift:both_capslock_cancel,altwin:swap_lalt_lwin",
+  })
+end
 
 -- App-specific touchpad scroll speeds.
 -- o.window("(Alacritty|kitty|foot)", { scroll_touchpad = 1.5 })
