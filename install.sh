@@ -41,17 +41,19 @@ link() {
   target="$(target_for "$rel")"
 
   if [[ -L "$target" && "$(readlink -f "$target")" == "$(readlink -f "$src")" ]]; then
+    ((++linked))
     [[ $MODE == status ]] || echo "ok      $rel"
     return
   fi
 
   if [[ $MODE == status ]]; then
+    ((++issues))
     if [[ ! -e "$target" && ! -L "$target" ]]; then
-      echo "missing $rel"
+      echo "missing  $rel"
     elif [[ -f "$target" && ! -L "$target" ]] && cmp -s "$src" "$target"; then
       echo "unlinked $rel (same content)"
     else
-      echo "drift   $rel"
+      echo "drift    $rel (live file differs, not a link)"
     fi
     return
   fi
@@ -70,6 +72,8 @@ link() {
 
 cd "$DOTFILES"
 
+linked=0
+issues=0
 prune=()
 for d in "${LINK_DIRS[@]}"; do
   link "$d"
@@ -79,3 +83,14 @@ done
 while IFS= read -r -d '' f; do
   link "$f"
 done < <(find config home "${prune[@]}" -type f -print0 | sort -z)
+
+if [[ $MODE == status ]]; then
+  echo "links: $linked ok, $issues to fix (run ./install.sh)"
+  changes="$(git status --short -- config home)"
+  if [[ -n $changes ]]; then
+    echo "uncommitted changes:"
+    echo "$changes"
+  else
+    echo "uncommitted changes: none"
+  fi
+fi
