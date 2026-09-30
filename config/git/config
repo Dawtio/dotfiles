@@ -31,4 +31,9 @@
 [user]
 	name = Maxime Brunet
 	email = mbrunet@dawtio.cloud
-	signingkey = 7D3B1457F6AA0395
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD0JdOcpUdN25Qc9QVLT+Vh6Y9ifeFw72rlwxvL3KF9LLBZIOtcY0fnoDVKeYwj0iQkLyU3yELtWU0WFKiEFRrIIb3zFVgxYZOUlupXaYOeojtc68wIADbGME+7K8Tw37uhGW8Mj97iTj7iYat42iOfYvLATuegTa4PYC+EcI+3c8cOmfJCW6WjFl9durORauN3+nnHvUAT1wWhUxahWmGF5REboHfHQT/dAsQJuaMEFMY2NTF3ifpSzE5JYEhyrwKHq4ORHE6BJw8XaSQl8IvXX7FnS9xhEWufB1BX02JzFpk8pw/h4AhM3mcZG+YIObjpUQ0MTyX4GCWGh8z5TdAK6ZOnHsBr+k3X0sROXWN2A7GZU5Icom+hYx5nRkd680crEQ+2bDn4mp/BwmGVdJ+CSVnrIR3JgZcflaspztoAVDWm8+FomyUHKVib+SSHXGqhctTo5YzuLmIHKdt/QHWc1T4kLC1LL2Z2w3SSCYvEhCTngcuyIqIX0XYA+q5b4nXvqHIZ4bNPnlhL/uAiXNs8sGUklgkkLRqgJF82yxjXRSDQpdQYa22X545Qrdzvv5j113wDWGSmlDbHyGchKHCw4N+r568wWfvl8ItxgAS1uBAKbjvVn+XUTD432MB7ett3lJtRSwe8xGxx+OIYSfaTRoiBd6fvLNH/wOFqPEdFZQ==
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign
+	allowedSignersFile = /home/mbrunet/.config/git/allowed_signers
