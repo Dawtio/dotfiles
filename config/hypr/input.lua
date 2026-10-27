@@ -14,7 +14,7 @@ hl.config({
 -- The keyboard exposes two input devices; the rule must cover both.
 -- kb_options on a device replaces the global ones, so keep Omarchy's defaults
 -- (compose:caps, shift:both_capslock_cancel) and add the remap.
-for _, name in ipairs({ "hs-tide-alice", "hs-tide-alice-keyboard" }) do
+for _, name in ipairs({ "hs-tide-alice-1", "hs-tide-alice", "hs-tide-alice-keyboard" }) do
   hl.device({
     name       = name,
     kb_layout  = "us",
